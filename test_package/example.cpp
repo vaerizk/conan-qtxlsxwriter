@@ -10,6 +10,6 @@ int main() {
 	xlsx1.write("A1", true);
 	xlsx1.write("A2", false);
 	xlsx1.saveAs(&device);
-	
+
 	std::cout << "Package test completed";
 }

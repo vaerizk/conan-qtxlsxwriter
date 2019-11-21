@@ -8,7 +8,7 @@ add_executable(example example.cpp)
 
 include_directories(
 	${QtXlsxWriter_INCLUDE_DIRS}
-	${Qt5Core_INCLUDE_DIRS} 
+	${Qt5Core_INCLUDE_DIRS}
 	${Qt5Gui_INCLUDE_DIRS}
 	${Qt5Gui_PRIVATE_INCLUDE_DIRS}
 )
@@ -18,9 +18,3 @@ target_link_libraries(example
 	${Qt5Core_LIBRARIES}
 	${Qt5Gui_LIBRARIES}
 )
-
-# CTest is a testing tool that can be used to test your project.
-# enable_testing()
-# add_test(NAME example
-#          WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin
-#          COMMAND example)
