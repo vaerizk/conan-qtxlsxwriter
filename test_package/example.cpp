@@ -12,4 +12,6 @@ int main() {
 	xlsx1.saveAs(&device);
 
 	std::cout << "Package test completed";
+
+	return 0;
 }
