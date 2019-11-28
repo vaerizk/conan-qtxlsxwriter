@@ -6,6 +6,13 @@ class QtXlsxWriterTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake_paths"
 
+    @property
+    def _bin_dir(self):
+        cmake = CMake(self)
+        if cmake.is_multi_configuration:
+            return str(self.settings.build_type)
+        return "."
+
     def build_requirements(self):
         self.build_requires("cmake_installer/[>3.0.0]@conan/stable")
 
@@ -17,10 +24,6 @@ class QtXlsxWriterTestConan(ConanFile):
         cmake.configure()
         cmake.build()
 
-    def imports(self):
-        self.copy("*.dll", dst=str(self.settings.build_type), src="bin")
-
     def test(self):
         if not tools.cross_building(self.settings):
-            os.chdir(str(self.settings.build_type))
-            self.run(".%sexample" % os.sep)
+            self.run(os.path.join(self._bin_dir, "example"), run_environment=True)
