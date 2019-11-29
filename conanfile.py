@@ -21,6 +21,9 @@ class QtXlsxWriterConan(ConanFile):
     default_options = {
         "shared": True
     }
+
+    revision_mode = "scm"
+
     generators = "cmake_paths"
     no_copy_source = True
 
